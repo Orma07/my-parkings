@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<CollectionView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:iconView="clr-namespace:iconview.Forms;assembly=icon-view.Forms"
+    xmlns:controls="clr-namespace:bottomnavigation.Forms.Controls"
+    x:Class="bottomnavigation.Forms.Views.BottomNavigationBarView"
+    ItemTemplate="{StaticResource Selector}">
+    <CollectionView.Resources>
+        <DataTemplate x:Key="IconTextTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".75*"/>
+                    <RowDefinition Height=".75*"/>
+                </Grid.RowDefinitions>
+                <iconView:IconView Source="{Binding IconSource}"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand"
+                                   Grid.Row="0"/>
+                <Label Text="{Binding Title}"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       Grid.Row="1"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TextTemplate">
+            <Label Text="{Binding Title}"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="IconTemplate">
+            <iconView:IconView Source="{Binding IconSource}"
+                               VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="CenterAndExpand"/>
+        </DataTemplate>
+
+        <controls:BottomNavigationItemSelector x:Key="Selector"
+                                               IconTemplate="{StaticResource IconTemplate}"
+                                               IconTextTemplate="{StaticResource IconTextTemplate}"
+                                               TextTemplate="{StaticResource TextTemplate}"/>
+
+    </CollectionView.Resources>
+
+</CollectionView>

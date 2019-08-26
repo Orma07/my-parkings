@@ -35,5 +35,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="icon-view.Forms\icon-view.Forms.csproj" />
+    <ProjectReference Include="..\app-base.Forms\app-base.Forms.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Views\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
 </Project>
