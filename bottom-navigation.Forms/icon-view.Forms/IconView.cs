@@ -4,9 +4,11 @@ using System.Reflection;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using Xamarin.Forms;
-
 namespace iconview.Forms
 {
+    /// <summary>
+    /// Author: Amro Abd Elgawwad
+    /// </summary>
     public class IconView : SKCanvasView
     {
      
