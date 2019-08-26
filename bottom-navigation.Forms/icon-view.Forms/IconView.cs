@@ -18,7 +18,7 @@ namespace iconview.Forms
         BindableProperty.Create("LineColor",
             typeof(Color),
             typeof(IconView),
-            (Color)Application.Current.Resources["lineColor"],
+            Color.Black,
             propertyChanged: OnLineChange);
 
 
@@ -63,9 +63,6 @@ namespace iconview.Forms
             propertyChanged: OnLineChange);
 
 
-        /// <summary>
-        /// Add full path of resource, including also the project folder, and the extension of svg file
-        /// </summary>
         public string Source
         {
             get { return (string)GetValue(SourceProperty); }
@@ -105,7 +102,7 @@ namespace iconview.Forms
             {
                 using (paint)
                 {
-                    using (var s = assembly.GetManifestResourceStream(Source))
+                    using (var s = assembly.GetManifestResourceStream($"icon-view.Forms.Resources.{Source}.svg"))
                         svg.Load(s);
                     var svgSize = svg.Picture.CullRect;
                     float svgMax = Math.Max(svgSize.Width, svgSize.Height);

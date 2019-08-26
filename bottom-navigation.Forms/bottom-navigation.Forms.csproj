@@ -12,6 +12,7 @@
     <Compile Remove="icon-view.Forms\AssemblyInfo.cs" />
     <Compile Remove="icon-view.Forms\IconView.cs" />
     <Compile Remove="icon-view.Forms\obj\Debug\netstandard2.0\icon-view.Forms.AssemblyInfo.cs" />
+    <Compile Remove="icon-view.Forms\IconView.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="MainPage.xaml" />
@@ -32,6 +33,8 @@
     <None Remove="icon-view.Forms\obj\Debug\netstandard2.0\icon-view.Forms.dll" />
     <None Remove="icon-view.Forms\obj\Debug\netstandard2.0\icon-view.Forms.pdb" />
     <None Remove="icon-view.Forms\obj\Debug\netstandard2.0\XamlC.stamp" />
+    <None Remove="icon-view.Forms\bin\Debug\netstandard2.0\icon-view.Forms.pdb" />
+    <None Remove="icon-view.Forms\Resources\monkey.svg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="icon-view.Forms\icon-view.Forms.csproj" />
@@ -42,5 +45,6 @@
     <Folder Include="Views\" />
     <Folder Include="Controls\" />
     <Folder Include="Exceptions\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
 </Project>
