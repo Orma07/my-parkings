@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
+using appbase.Forms;
 using bottomnavigation.Forms.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace bottomnavigation.Forms.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class BottomNavigationPage : ContentPage
+    public partial class BottomNavigationPage : RxContentPage
     {
         public BottomNavigationPage()
         {
@@ -43,6 +44,16 @@ namespace bottomnavigation.Forms.Views
             });
 
             BindingContext = viewModel;
+        }
+
+        protected override void OnDisappearing()
+        {
+            BottomNavigation.Disposables.ForEach(disposable =>
+            {
+                disposable.Dispose();
+            });
+            base.OnDisappearing();
+           
         }
     }
 }
