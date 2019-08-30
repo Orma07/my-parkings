@@ -110,7 +110,7 @@ namespace iconview.Forms
 
                     // calculate the scaling need to fit
                     float canvasMin = Math.Min(info.Width, info.Height);
-                    float scale = (canvasMin / svgMax) * 0.7f;
+                    float scale = (canvasMin / svgMax);
                     var matrix = SKMatrix.MakeScale(scale, scale);
                     matrix.TransX = -scale * svg.Picture.CullRect.Width / 2;
 
