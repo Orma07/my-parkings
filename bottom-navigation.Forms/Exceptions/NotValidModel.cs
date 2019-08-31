@@ -19,6 +19,11 @@ namespace bottomnavigation.Forms.Exceptions
             _message = $"This is not a valid model for BottomNavigation, Title or IconSource mus be not null";
         }
 
+        public NotValidModel(string message)
+        {
+            _message = message;
+        }
+
     }
 }
 

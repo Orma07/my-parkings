@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using bottomnavigation.Forms.Models;
 using bottomnavigation.Forms.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +13,29 @@ namespace my_parkings
         {
             InitializeComponent();
 
-            MainPage = new BottomNavigationPage();
+            var pages = new ObservableCollection<SectionModel>();
+
+            for(int i = 1; i<5; i++)
+            {
+                pages.Add(new SectionModel
+                {
+                    NavigationItemModel = new NavigationItemModel
+                    {
+                        IconSource = "monkey",
+                        Title = $"Monkey {i}"
+                    }
+                });
+            }
+
+            var viewModel = new BaseBottomNavigationPageModel
+            {
+                SelectionColor = Color.DarkBlue,
+                NotSelectedColor = Color.DarkGray,
+                ColorSeparetor = Color.LightGray,
+                Pages = pages
+            };
+
+            MainPage = new BottomNavigationPage(viewModel);
         }
 
         protected override void OnStart()

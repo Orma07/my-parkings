@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using appbase.Forms;
+using bottomnavigation.Forms.Exceptions;
 using bottomnavigation.Forms.Models;
-using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace bottomnavigation.Forms.Views
@@ -13,37 +10,20 @@ namespace bottomnavigation.Forms.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BottomNavigationPage : RxContentPage
     {
-        public BottomNavigationPage()
+        private BaseBottomNavigationPageModel _viewModel;
+        public BottomNavigationPage(BaseBottomNavigationPageModel viewModel)
         {
             InitializeComponent();
-            var viewModel = new ExampleViewModel
+            _viewModel = viewModel;
+            var bottomViews = new ObservableCollection<NavigationItemModel>();
+
+            _viewModel.Pages.ForEach(page =>
             {
-                Sections = new ObservableCollection<NavigationItemModel>()
-            };
-            viewModel.Sections.Add(new NavigationItemModel
-            {
-                Title = "monkey 1",
-                IconSource = "monkey"
+                bottomViews.Add(page.NavigationItemModel);
             });
 
-            viewModel.Sections.Add(new NavigationItemModel
-            {
-                Title = "monkey 2",
-                IconSource = "monkey"
-            });
-
-            viewModel.Sections.Add(new NavigationItemModel
-            {
-                Title = "monkey ALONE blalalalalalalal",
-
-            });
-
-            viewModel.Sections.Add(new NavigationItemModel
-            {
-                IconSource = "monkey"
-            });
-
-            BindingContext = viewModel;
+            BottomNavigation.Sections = bottomViews;
+            BindingContext = _viewModel;
         }
 
         protected override void OnDisappearing()

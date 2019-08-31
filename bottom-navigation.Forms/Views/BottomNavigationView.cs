@@ -26,6 +26,7 @@ namespace bottomnavigation.Forms.Views
             set
             {
                 _position = value;
+                ColorIcons(false, _position);
                 PositionChanged?.Invoke(this, new SectionClikedArgs{
                     PosionSelected = value
                 });
@@ -41,11 +42,6 @@ namespace bottomnavigation.Forms.Views
             Color.Blue,
             propertyChanged: OnSelectionColorChanged);
 
-        private static void OnSelectionColorChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            
-        }
-
         public Color SelectionColor
         {
             get { return (Color)GetValue(SelectionColorProperty); }
@@ -60,26 +56,12 @@ namespace bottomnavigation.Forms.Views
             typeof(Color),
             typeof(BottomNavigationView),
             Color.Black,
-            propertyChanged: OnNotSelectionColorChanged);
+            propertyChanged: OnSelectionColorChanged);
 
-        private static void OnNotSelectionColorChanged(BindableObject bindable, object oldValue, object newValue)
+        private static void OnSelectionColorChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var current = (BottomNavigationView)bindable;
-            foreach(var element in current._sectionsView)
-            {
-                if(element is IconView)
-                {
-                    var icon = element as IconView;
-                    icon.LineColor = current.NotSelectionColor;
-                    icon.InvalidateSurface();
-                }
-                else if(element is Label)
-                {
-                    var title = element as Label;
-                    title.TextColor = current.NotSelectionColor;
-                }
-                
-            }
+            current.Position = 0;
         }
 
         public Color NotSelectionColor
@@ -185,46 +167,17 @@ namespace bottomnavigation.Forms.Views
             return iconView;
         }
 
-        private void SelectIcon(object sender, object args)
+        private void ChangePosition(object sender, object args)
         {
-            DeselectIcons();
-            IconView iconView = null;
-            Label label = null;
-            if(sender is Grid)
-            {
-                var grid = sender as Grid;
-                iconView = grid.Children[0] as IconView;
-                label = grid.Children[1] as Label;
-            }
-            else if(sender is IconView)
-            {
-                iconView = sender as IconView;
-               
-            }
-            else if(sender is Label)
-            {
-                label = sender as Label;
-                
-            }
-
-            if(iconView != null)
-            {
-                iconView.LineColor = SelectionColor;
-                iconView.InvalidateSurface();
-
-            }
-            if(label != null)
-            {
-                label.TextColor = SelectionColor;
-            }
-
             Position = _sectionsView.IndexOf(sender);
+           
         }
 
-        private void DeselectIcons()
+        private void ColorIcons(bool deselectAll = true, int selectedPosition = 0)
         {
             _sectionsView.ForEach(element =>
             {
+                int position = _sectionsView.IndexOf(element);
                 IconView iconView = null;
                 Label label = null;
                 if (element is Grid)
@@ -246,13 +199,13 @@ namespace bottomnavigation.Forms.Views
 
                 if (iconView != null)
                 {
-                    iconView.LineColor = NotSelectionColor;
+                    iconView.LineColor = position == selectedPosition && !deselectAll ? SelectionColor : NotSelectionColor;
                     iconView.InvalidateSurface();
 
                 }
                 if (label != null)
                 {
-                    label.TextColor = NotSelectionColor;
+                    label.TextColor = position == selectedPosition && !deselectAll ? SelectionColor : NotSelectionColor;
                 }
             });
         }
@@ -260,7 +213,7 @@ namespace bottomnavigation.Forms.Views
         private void AddTitle(string title, int position)
         {
             var label = CreateTitleLabel(title);
-            Disposables.Add(label.OnClick(SelectIcon));
+            Disposables.Add(label.OnClick(ChangePosition));
             _sectionsView.Add(label);
             Children.Add(label, position, 0);
         }
@@ -269,7 +222,7 @@ namespace bottomnavigation.Forms.Views
         {
             var icon = CreateIconView(iconSource);
             _sectionsView.Add(icon);
-            Disposables.Add(icon.OnClick(SelectIcon));
+            Disposables.Add(icon.OnClick(ChangePosition));
             Children.Add(icon, position, 0);
         }
 
@@ -291,7 +244,7 @@ namespace bottomnavigation.Forms.Views
             grid.Children.Add(iconView, 0, 0);
             grid.Children.Add(titleLabel, 0, 1);
 
-            Disposables.Add(grid.OnClick(SelectIcon));
+            Disposables.Add(grid.OnClick(ChangePosition));
             _sectionsView.Add(grid);
             Children.Add(grid, position, 0);
         }

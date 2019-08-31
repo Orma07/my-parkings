@@ -7,13 +7,18 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height=".9*"/>
-                <RowDefinition Height=".1*"/>
+                <RowDefinition Height=".91*"/>
+                <RowDefinition Height=".001*"/>
+                <RowDefinition Height=".088*"/>
             </Grid.RowDefinitions>
 
-            <view:BottomNavigationView Sections="{Binding Sections}"
-                                       x:Name="BottomNavigation"
-                                       Grid.Row="1"/>
+            <BoxView Color="{Binding ColorSeparetor}"
+                     Grid.Row="1"/>
+
+            <view:BottomNavigationView x:Name="BottomNavigation"
+                                       SelectionColor="{Binding SelectionColor}"
+                                       NotSelectionColor="{Binding NotSelectedColor}"
+                                       Grid.Row="2"/>
         </Grid>
     </ContentPage.Content>
 </base:RxContentPage>
