@@ -6,6 +6,46 @@
              mc:Ignorable="d"
              x:Class="my_parkings.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PrimaryColor">#0d47a1</Color>
+            <Color x:Key="PrimaryLightColor">#5472d3</Color>
+            <Color x:Key="PrimaryDarkColor">#002171</Color>
 
+            <Style x:Key="BaseButton" TargetType="Button">
+                <Setter Property="Visual" Value="Material"/>
+                <Setter Property="CornerRadius" Value="4"/>
+            </Style>
+
+            <Style x:Key="Button"
+                   TargetType="Button"
+                   BasedOn="{StaticResource BaseButton}">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}"/>
+            </Style>
+
+             <Style x:Key="InverseButton"
+                    TargetType="Button"
+                    BasedOn="{StaticResource BaseButton}">
+                 <Setter Property="TextColor" Value="{StaticResource PrimaryColor}"/>
+                 <Setter Property="BackgroundColor" Value="White"/>
+                 <Setter Property="BorderColor" Value="{StaticResource PrimaryColor}"/>
+                 <Setter Property="BorderWidth" Value="3"/>
+            </Style>
+
+            <Style x:Key="InverseButtonDisabled"
+                   TargetType="Button"
+                   BasedOn="{StaticResource BaseButton}">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="Gray"/>
+            </Style>
+
+           <Style x:Key="Entry"
+                  TargetType="Entry">
+               <Setter Property="Visual" Value="Material"/>
+               <Setter Property="BackgroundColor" Value="Transparent"/>
+               <Setter Property="PlaceholderColor" Value="DarkGray"/>
+           </Style>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -2,6 +2,8 @@
 using System.Collections.ObjectModel;
 using bottomnavigation.Forms.Models;
 using bottomnavigation.Forms.Views;
+using myparkings.Forms.ExamplePackage.ViewModels;
+using myparkings.Forms.ExamplePackage.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,25 +19,36 @@ namespace my_parkings
 
             for(int i = 1; i<5; i++)
             {
-                pages.Add(new SectionModel
+                var section = new SectionModel
                 {
                     NavigationItemModel = new NavigationItemModel
                     {
                         IconSource = "monkey",
                         Title = $"Monkey {i}"
-                    }
-                });
+
+                    },
+                    PagesType = i == 1 ? typeof(AppComponents) : typeof(ExampleContentView),
+                };
+                section.Args.Add("position", i);
+                pages.Add(section);
+
+
             }
 
             var viewModel = new BaseBottomNavigationPageModel
             {
-                SelectionColor = Color.DarkBlue,
+                SelectionColor = GetPrimaryColor(),
                 NotSelectedColor = Color.DarkGray,
                 ColorSeparetor = Color.LightGray,
                 Pages = pages
             };
 
             MainPage = new BottomNavigationPage(viewModel);
+        }
+
+        private Color GetPrimaryColor()
+        {
+            return (Color)Application.Current.Resources["PrimaryColor"];
         }
 
         protected override void OnStart()

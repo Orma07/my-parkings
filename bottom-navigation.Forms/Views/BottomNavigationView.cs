@@ -15,10 +15,11 @@ namespace bottomnavigation.Forms.Views
     /// </summary>
     public class BottomNavigationView : Grid
     {
-
+        private const float ScaleFactor = 0.8f;
+        private const float NormalScaleFactor = 1f;
         private List<View> _sectionsView = new List<View>();
 
-        public EventHandler<SectionClikedArgs> PositionChanged;
+        public event EventHandler<SectionClikedArgs> PositionChanged;
         public int _position;
         public int Position
         {
@@ -68,26 +69,6 @@ namespace bottomnavigation.Forms.Views
         {
             get { return (Color)GetValue(NotSelectionColorProperty); }
             set { SetValue(SelectionColorProperty, value); }
-        }
-        #endregion
-
-        #region SeparetorColorProperty
-        public static readonly BindableProperty SeparetorColorProperty =
-        BindableProperty.Create("SeparetorColor",
-            typeof(Color),
-            typeof(BottomNavigationView),
-            Color.LightGray,
-            propertyChanged: OnSeparetorColorChanged);
-
-        private static void OnSeparetorColorChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-
-        }
-
-        public Color SeparetorColor
-        {
-            get { return (Color)GetValue(SeparetorColorProperty); }
-            set { SetValue(SeparetorColorProperty, value); }
         }
         #endregion
 
@@ -197,15 +178,32 @@ namespace bottomnavigation.Forms.Views
 
                 }
 
+               
                 if (iconView != null)
                 {
                     iconView.LineColor = position == selectedPosition && !deselectAll ? SelectionColor : NotSelectionColor;
                     iconView.InvalidateSurface();
+                    if(position == selectedPosition)
+                    {
+                        iconView.ScaleTo(NormalScaleFactor);
+                    }
+                    else
+                    {
+                        iconView.Scale = ScaleFactor;
+                    }
 
                 }
                 if (label != null)
                 {
                     label.TextColor = position == selectedPosition && !deselectAll ? SelectionColor : NotSelectionColor;
+                    if (position == selectedPosition)
+                    {
+                        label.ScaleTo(NormalScaleFactor);
+                    }
+                    else
+                    {
+                        label.Scale = ScaleFactor;
+                    }
                 }
             });
         }
@@ -230,11 +228,9 @@ namespace bottomnavigation.Forms.Views
         {
             var titleLabel = CreateTitleLabel(model.Title);
             titleLabel.VerticalOptions = LayoutOptions.Start;
-            //titleLabel.BackgroundColor = Color.Green;
 
             var iconView = CreateIconView(model.IconSource);
             iconView.VerticalOptions = LayoutOptions.End;
-            //iconView.BackgroundColor = Color.Yellow;
 
  
             Grid grid = new Grid();

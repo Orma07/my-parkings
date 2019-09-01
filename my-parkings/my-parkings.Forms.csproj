@@ -12,11 +12,14 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
-    <PackageReference Include="System.Reactive.Windows.Threading" Version="4.1.6" />
     <PackageReference Include="System.Reactive" Version="4.1.6" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="ExamplePackage\" />
+    <Folder Include="ExamplePackage\Views\" />
+    <Folder Include="ExamplePackage\ViewModels\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\app-base.Forms\app-base.Forms.csproj" />

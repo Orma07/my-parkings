@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
-    <PackageReference Include="System.Reactive.Windows.Threading" Version="4.1.6" />
     <PackageReference Include="System.Reactive" Version="4.1.6" />
   </ItemGroup>
   <ItemGroup>
@@ -48,5 +47,6 @@
     <Folder Include="Controls\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Utils\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 </Project>

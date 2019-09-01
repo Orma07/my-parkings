@@ -5,12 +5,15 @@
              xmlns:base="clr-namespace:appbase.Forms;assembly=app-base.Forms"
              x:Class="bottomnavigation.Forms.Views.BottomNavigationPage">
     <ContentPage.Content>
-        <Grid>
+        <Grid x:Name="GridContent">
             <Grid.RowDefinitions>
-                <RowDefinition Height=".91*"/>
+                <RowDefinition Height=".919*"/>
                 <RowDefinition Height=".001*"/>
-                <RowDefinition Height=".088*"/>
+                <RowDefinition Height=".08*"/>
             </Grid.RowDefinitions>
+
+            <ContentView x:Name="PageContent"
+                         Grid.Row="0"/>
 
             <BoxView Color="{Binding ColorSeparetor}"
                      Grid.Row="1"/>
