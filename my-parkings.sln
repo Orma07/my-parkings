@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "icon-view.Forms", "bottom-n
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavigationHeder", "bottom-navigation.Forms\NavigationHeder\NavigationHeder.csproj", "{A88DD956-1F44-44E3-B4DA-319AC5F0C3FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bottom-navigation-page", "bottom-navigation.Forms\bottom-navigation-page\bottom-navigation-page.csproj", "{70DAA4EE-890C-4D1F-BC38-F47E73925D5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,6 +129,18 @@ Global
 		{A88DD956-1F44-44E3-B4DA-319AC5F0C3FE}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{A88DD956-1F44-44E3-B4DA-319AC5F0C3FE}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{A88DD956-1F44-44E3-B4DA-319AC5F0C3FE}.Release|iPhone.Build.0 = Release|Any CPU
+		{70DAA4EE-890C-4D1F-BC38-F47E73925D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70DAA4EE-890C-4D1F-BC38-F47E73925D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70DAA4EE-890C-4D1F-BC38-F47E73925D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70DAA4EE-890C-4D1F-BC38-F47E73925D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70DAA4EE-890C-4D1F-BC38-F47E73925D5A}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{70DAA4EE-890C-4D1F-BC38-F47E73925D5A}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{70DAA4EE-890C-4D1F-BC38-F47E73925D5A}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{70DAA4EE-890C-4D1F-BC38-F47E73925D5A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{70DAA4EE-890C-4D1F-BC38-F47E73925D5A}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{70DAA4EE-890C-4D1F-BC38-F47E73925D5A}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{70DAA4EE-890C-4D1F-BC38-F47E73925D5A}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{70DAA4EE-890C-4D1F-BC38-F47E73925D5A}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B19EEC36-9595-4FE4-BEEF-CEDAE4A178B5} = {9E21D8CD-F702-4945-A67D-50D04AD6283F}
@@ -134,5 +148,6 @@ Global
 		{1BCDEA67-FE04-4990-AC7B-642A5366C697} = {CF11F19F-EB3C-4D27-B996-4B1D7D2F2564}
 		{C01991D1-8C19-478C-A250-E0E526E8A08C} = {CF11F19F-EB3C-4D27-B996-4B1D7D2F2564}
 		{A88DD956-1F44-44E3-B4DA-319AC5F0C3FE} = {CF11F19F-EB3C-4D27-B996-4B1D7D2F2564}
+		{70DAA4EE-890C-4D1F-BC38-F47E73925D5A} = {CF11F19F-EB3C-4D27-B996-4B1D7D2F2564}
 	EndGlobalSection
 EndGlobal
