@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
-    <PackageReference Include="System.Reactive" Version="4.1.6" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
+    <PackageReference Include="System.Reactive" Version="4.2.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModel\" />

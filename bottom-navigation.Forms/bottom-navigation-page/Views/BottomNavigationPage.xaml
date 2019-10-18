@@ -3,8 +3,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:view="clr-namespace:bottomnavigation.Forms.Views"
                     xmlns:base="clr-namespace:appbase.Forms;assembly=app-base.Forms"
-                    xmlns:navigationView="clr-namespace:NavigationHeder.View"
-                    x:Class="bottomnavigation.Forms.Views.BottomNavigationPage">
+                    xmlns:navigationView="clr-namespace:NavigationHeder.View;assembly=NavigationHeder"
+                    x:Class="bottomnavigation.Forms.Views.BottomNavigationPage"
+                    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                    ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <Grid x:Name="GridContent">
             <Grid.RowDefinitions>

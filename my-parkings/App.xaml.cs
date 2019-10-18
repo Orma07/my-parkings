@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using myparkings.Forms;
-using myparkings.Forms.ExamplePackage.ViewModels;
+﻿using System.Collections.ObjectModel;
+using bottomnavigation.Forms.Models;
+using bottomnavigation.Forms.Views;
 using myparkings.Forms.ExamplePackage.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace my_parkings
 {
