@@ -26,6 +26,5 @@
     <ProjectReference Include="..\app-base.Forms\app-base.Forms.csproj" />
     <ProjectReference Include="..\my-parkings.Core\my-parkings.Core.csproj" />
     <ProjectReference Include="..\bottom-navigation.Forms\icon-view.Forms\icon-view.Forms.csproj" />
-    <ProjectReference Include="..\bottom-navigation.Forms\bottom-navigation.Forms.csproj" />
   </ItemGroup>
 </Project>
