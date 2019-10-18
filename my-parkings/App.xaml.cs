@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using bottomnavigation.Forms.Models;
 using bottomnavigation.Forms.Views;
+using myparkings.Forms;
 using myparkings.Forms.ExamplePackage.ViewModels;
 using myparkings.Forms.ExamplePackage.Views;
 using Xamarin.Forms;
@@ -40,10 +41,14 @@ namespace my_parkings
                 SelectionColor = GetPrimaryColor(),
                 NotSelectedColor = Color.DarkGray,
                 ColorSeparetor = Color.LightGray,
+                HeaderColor = Color.Transparent,
+                IsNavigationHeaderVisible = true,
                 Pages = pages
             };
 
-            MainPage = new BottomNavigationPage(viewModel);
+            MainPage = new NavigationPage(new BottomNavigationPage(viewModel));
+
+            //MainPage = new AppShell();
         }
 
         private Color GetPrimaryColor()

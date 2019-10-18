@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "icon-view.Forms", "bottom-n
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app-base.Forms", "app-base.Forms\app-base.Forms.csproj", "{EC7E819A-721B-4041-84E2-DC3CE7E8060C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavigationHeder", "bottom-navigation.Forms\NavigationHeder\NavigationHeder.csproj", "{8E2225E2-6A92-4C2D-852E-06E8F9A4755A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,11 +115,24 @@ Global
 		{EC7E819A-721B-4041-84E2-DC3CE7E8060C}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{EC7E819A-721B-4041-84E2-DC3CE7E8060C}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{EC7E819A-721B-4041-84E2-DC3CE7E8060C}.Release|iPhone.Build.0 = Release|Any CPU
+		{8E2225E2-6A92-4C2D-852E-06E8F9A4755A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E2225E2-6A92-4C2D-852E-06E8F9A4755A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E2225E2-6A92-4C2D-852E-06E8F9A4755A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E2225E2-6A92-4C2D-852E-06E8F9A4755A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E2225E2-6A92-4C2D-852E-06E8F9A4755A}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{8E2225E2-6A92-4C2D-852E-06E8F9A4755A}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{8E2225E2-6A92-4C2D-852E-06E8F9A4755A}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{8E2225E2-6A92-4C2D-852E-06E8F9A4755A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{8E2225E2-6A92-4C2D-852E-06E8F9A4755A}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{8E2225E2-6A92-4C2D-852E-06E8F9A4755A}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{8E2225E2-6A92-4C2D-852E-06E8F9A4755A}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{8E2225E2-6A92-4C2D-852E-06E8F9A4755A}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B19EEC36-9595-4FE4-BEEF-CEDAE4A178B5} = {9E21D8CD-F702-4945-A67D-50D04AD6283F}
 		{6B8D25F2-D828-4002-91F1-520B028E95FE} = {9E21D8CD-F702-4945-A67D-50D04AD6283F}
 		{1BCDEA67-FE04-4990-AC7B-642A5366C697} = {CF11F19F-EB3C-4D27-B996-4B1D7D2F2564}
 		{5D7DF27E-2954-47BF-B3D6-557122C4F92F} = {CF11F19F-EB3C-4D27-B996-4B1D7D2F2564}
+		{8E2225E2-6A92-4C2D-852E-06E8F9A4755A} = {CF11F19F-EB3C-4D27-B996-4B1D7D2F2564}
 	EndGlobalSection
 EndGlobal

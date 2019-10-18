@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <base:RxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:view="clr-namespace:bottomnavigation.Forms.Views"
-             xmlns:base="clr-namespace:appbase.Forms;assembly=app-base.Forms"
-             x:Class="bottomnavigation.Forms.Views.BottomNavigationPage">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:view="clr-namespace:bottomnavigation.Forms.Views"
+                    xmlns:base="clr-namespace:appbase.Forms;assembly=app-base.Forms"
+                    xmlns:navigationView="clr-namespace:NavigationHeder.View"
+                    x:Class="bottomnavigation.Forms.Views.BottomNavigationPage">
     <ContentPage.Content>
         <Grid x:Name="GridContent">
             <Grid.RowDefinitions>
@@ -12,8 +13,16 @@
                 <RowDefinition Height=".08*"/>
             </Grid.RowDefinitions>
 
-            <ContentView x:Name="PageContent"
-                         Grid.Row="0"/>
+            <StackLayout Grid.Row="0">
+                <navigationView:NavigationHeader HeightRequest="60"
+                                                 IsVisible="{Binding IsNavigationHeaderVisible}"
+                                                 BackgroundColor="{Binding HeaderColor}"
+                                                 HorizontalOptions="FillAndExpand"
+                                                 x:Name="NavigationHeaderVeiw"/>
+                <ContentView x:Name="PageContent"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"/>
+            </StackLayout>
 
             <BoxView Color="{Binding ColorSeparetor}"
                      Grid.Row="1"/>

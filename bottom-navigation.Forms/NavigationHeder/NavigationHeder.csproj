@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\app-base.Forms\app-base.Forms.csproj" />
+    <ProjectReference Include="..\icon-view.Forms\icon-view.Forms.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="NavigationHeaderView.xaml.cs" />
+    <Compile Remove="EmptyClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="NavigationHeaderView.xaml" />
+  </ItemGroup>
+</Project>

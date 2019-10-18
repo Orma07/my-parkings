@@ -18,6 +18,7 @@ namespace bottomnavigation.Forms.Views
         {
             InitializeComponent();
             _viewModel = viewModel;
+            NavigationPage.SetHasNavigationBar(this, false);
             var bottomViews = new ObservableCollection<NavigationItemModel>();
 
             _viewModel.Pages.ForEach(page =>
@@ -62,6 +63,8 @@ namespace bottomnavigation.Forms.Views
                 (PageContent.Content as IBottomNavigationPage).OnDestroy();
             }
             PageContent.Content = view;
+
+            NavigationHeaderVeiw.TitleText = _viewModel.Pages[args.PosionSelected].NavigationItemModel.Title;
         }
 
         protected override void OnDisappearing()

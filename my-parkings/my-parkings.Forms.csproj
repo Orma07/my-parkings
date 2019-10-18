@@ -20,6 +20,7 @@
     <Folder Include="ExamplePackage\Views\" />
     <Folder Include="ExamplePackage\ViewModels\" />
     <Folder Include="Utils\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\app-base.Forms\app-base.Forms.csproj" />
