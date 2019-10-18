@@ -13,7 +13,7 @@ namespace NavigationHeder.View
         public static readonly BindableProperty LeftIconSourceProperty =
         BindableProperty.Create("LeftIconSource",
             typeof(string),
-            typeof(NavigationHeader),
+            typeof(IconView),
             "",
             propertyChanged: OnLeftIconSourceChange);
 
@@ -42,7 +42,7 @@ namespace NavigationHeder.View
         public static readonly BindableProperty RightIconSourceProperty =
         BindableProperty.Create("RightIconSource",
             typeof(string),
-            typeof(NavigationHeader),
+            typeof(IconView),
             "",
             propertyChanged: OnRightIconSourceChange);
 
@@ -71,7 +71,7 @@ namespace NavigationHeder.View
         public static readonly BindableProperty TitleTextProperty =
         BindableProperty.Create("TitleText",
             typeof(string),
-            typeof(NavigationHeader),
+            typeof(IconView),
             "",
             propertyChanged: OnTitleTextChange);
 
@@ -100,7 +100,7 @@ namespace NavigationHeder.View
         public static readonly BindableProperty TitleTextColorProperty =
         BindableProperty.Create("TitleTextColor",
             typeof(Color),
-            typeof(NavigationHeader),
+            typeof(IconView),
             Color.Black,
             propertyChanged: OnTitleTextColorChange);
 
@@ -129,7 +129,7 @@ namespace NavigationHeder.View
         public static readonly BindableProperty TitleTextSizeProperty =
         BindableProperty.Create("TitleTextSize",
             typeof(double),
-            typeof(NavigationHeader),
+            typeof(IconView),
             22d,
             propertyChanged: OnTitleTextSizeChange);
 
@@ -158,7 +158,7 @@ namespace NavigationHeder.View
         public static readonly BindableProperty TitleTextFontProperty =
         BindableProperty.Create("TitleTextFont",
             typeof(string),
-            typeof(NavigationHeader),
+            typeof(IconView),
             "",
             propertyChanged: OnTitleTextFontChange);
 
