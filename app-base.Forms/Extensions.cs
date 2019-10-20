@@ -64,10 +64,9 @@ namespace appbase.Forms
 
         }
 
-        public static void OnUIThread(this View view, Action action)
-        {
-            Device.BeginInvokeOnMainThread(action);
-        }
+        public static void OnUIThread(this View view, Action action) => Device.BeginInvokeOnMainThread(action);
+   
+        public static void let<T>(this T t, Action<T> action) => action(t);
 
         public static void OnNewTask(this object current, Func<Task> actionAsync)
         {

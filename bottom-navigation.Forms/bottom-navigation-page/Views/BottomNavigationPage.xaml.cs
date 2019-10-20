@@ -4,6 +4,7 @@ using System.Reactive.Linq;
 using appbase.Forms;
 using bottomnavigation.Forms.Exceptions;
 using bottomnavigation.Forms.Models;
+using NavigationHeder.View;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
@@ -14,6 +15,8 @@ namespace bottomnavigation.Forms.Views
     public partial class BottomNavigationPage : RxContentPage
     {
         private BaseBottomNavigationPageModel _viewModel;
+        public NavigationHeader NavigationHeder { get => NavigationHeaderVeiw; }
+
         public BottomNavigationPage(BaseBottomNavigationPageModel viewModel)
         {
             InitializeComponent();
@@ -36,6 +39,7 @@ namespace bottomnavigation.Forms.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            BindToLifeCycle(NavigationHeder);
             BindToLifeCycle(Observable.FromEventPattern<SectionClikedArgs>(
                 handler => BottomNavigation.PositionChanged += handler,
                 handler => BottomNavigation.PositionChanged -= handler)
@@ -47,13 +51,11 @@ namespace bottomnavigation.Forms.Views
         private void OnPositionChanged(SectionClikedArgs args)
         {
             var selectedType = _viewModel.Pages[args.PosionSelected].PagesType;
-            var view = Activator.CreateInstance(selectedType) as View;
-            if(view == null)
+            if (!(Activator.CreateInstance(selectedType) is View view))
             {
                 throw new BottomNavigationPageException("PageType is not a View");
             }
-            var bottomNavigationPage = view as IBottomNavigationPage;
-            if (bottomNavigationPage == null)
+            if (!(view is IBottomNavigationPage bottomNavigationPage))
             {
                 throw new BottomNavigationPageException("PageType is not a IBottomNavigationPage");
             }

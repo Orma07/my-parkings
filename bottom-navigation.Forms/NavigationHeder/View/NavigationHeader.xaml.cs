@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using appbase.Forms;
-using iconview.Forms;
 using Xamarin.Forms;
 
 namespace NavigationHeder.View
@@ -13,7 +12,7 @@ namespace NavigationHeder.View
         public static readonly BindableProperty LeftIconSourceProperty =
         BindableProperty.Create("LeftIconSource",
             typeof(string),
-            typeof(IconView),
+            typeof(NavigationHeader),
             "",
             propertyChanged: OnLeftIconSourceChange);
 
@@ -26,7 +25,7 @@ namespace NavigationHeder.View
             }
             catch
             {
-                throw new NavigationHeaderExceptions("Invalid left icon source");
+                throw new NavigationHeaderExceptions("Invalid LeftIconSource");
             }
         }
 
@@ -42,7 +41,7 @@ namespace NavigationHeder.View
         public static readonly BindableProperty RightIconSourceProperty =
         BindableProperty.Create("RightIconSource",
             typeof(string),
-            typeof(IconView),
+            typeof(NavigationHeader),
             "",
             propertyChanged: OnRightIconSourceChange);
 
@@ -55,7 +54,7 @@ namespace NavigationHeder.View
             }
             catch
             {
-                throw new NavigationHeaderExceptions("Invalid right icon source");
+                throw new NavigationHeaderExceptions("Invalid RightIconSource");
             }
         }
 
@@ -71,7 +70,7 @@ namespace NavigationHeder.View
         public static readonly BindableProperty TitleTextProperty =
         BindableProperty.Create("TitleText",
             typeof(string),
-            typeof(IconView),
+            typeof(NavigationHeader),
             "",
             propertyChanged: OnTitleTextChange);
 
@@ -100,7 +99,7 @@ namespace NavigationHeder.View
         public static readonly BindableProperty TitleTextColorProperty =
         BindableProperty.Create("TitleTextColor",
             typeof(Color),
-            typeof(IconView),
+            typeof(NavigationHeader),
             Color.Black,
             propertyChanged: OnTitleTextColorChange);
 
@@ -109,7 +108,7 @@ namespace NavigationHeder.View
             var current = (NavigationHeader)bindable;
             try
             {
-                current._titleLabel.TextColor = (Color)newValue;
+                current._titleLabel.TextColor = current.TitleTextColor;
             }
             catch
             {
@@ -118,9 +117,9 @@ namespace NavigationHeder.View
         }
 
 
-        public double TitleTextColor
+        public Color TitleTextColor
         {
-            get { return (double)GetValue(TitleTextColorProperty); }
+            get { return (Color)GetValue(TitleTextColorProperty); }
             set { SetValue(TitleTextColorProperty, value); }
         }
         #endregion
@@ -129,7 +128,7 @@ namespace NavigationHeder.View
         public static readonly BindableProperty TitleTextSizeProperty =
         BindableProperty.Create("TitleTextSize",
             typeof(double),
-            typeof(IconView),
+            typeof(NavigationHeader),
             22d,
             propertyChanged: OnTitleTextSizeChange);
 
@@ -158,7 +157,7 @@ namespace NavigationHeder.View
         public static readonly BindableProperty TitleTextFontProperty =
         BindableProperty.Create("TitleTextFont",
             typeof(string),
-            typeof(IconView),
+            typeof(NavigationHeader),
             "",
             propertyChanged: OnTitleTextFontChange);
 

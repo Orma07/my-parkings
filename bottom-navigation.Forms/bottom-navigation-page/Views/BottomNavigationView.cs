@@ -185,7 +185,7 @@ namespace bottomnavigation.Forms.Views
                     iconView.InvalidateSurface();
                     if(position == selectedPosition)
                     {
-                        iconView.ScaleTo(NormalScaleFactor);
+                        iconView.ScaleTo(NormalScaleFactor, 150);
                     }
                     else
                     {
@@ -198,7 +198,7 @@ namespace bottomnavigation.Forms.Views
                     label.TextColor = position == selectedPosition && !deselectAll ? SelectionColor : NotSelectionColor;
                     if (position == selectedPosition)
                     {
-                        label.ScaleTo(NormalScaleFactor);
+                        label.ScaleTo(NormalScaleFactor, 150);
                     }
                     else
                     {

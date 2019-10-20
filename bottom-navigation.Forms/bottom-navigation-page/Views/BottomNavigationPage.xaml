@@ -17,8 +17,6 @@
 
             <StackLayout Grid.Row="0">
                 <navigationView:NavigationHeader HeightRequest="60"
-                                                 IsVisible="{Binding IsNavigationHeaderVisible}"
-                                                 BackgroundColor="{Binding HeaderColor}"
                                                  HorizontalOptions="FillAndExpand"
                                                  x:Name="NavigationHeaderVeiw"/>
                 <ContentView x:Name="PageContent"

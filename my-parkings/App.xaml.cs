@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using appbase.Forms;
 using bottomnavigation.Forms.Models;
 using bottomnavigation.Forms.Views;
 using myparkings.Forms.ExamplePackage.Views;
@@ -37,11 +38,14 @@ namespace my_parkings
                 SelectionColor = GetPrimaryColor(),
                 NotSelectedColor = Color.DarkGray,
                 ColorSeparetor = Color.LightGray,
-                HeaderColor = Color.Transparent,
-                IsNavigationHeaderVisible = true,
                 Pages = pages
             };
 
+            var bottomNavigation = new BottomNavigationPage(viewModel);
+            bottomNavigation.NavigationHeder.let(t => {
+                t.BackgroundColor = Color.Transparent;
+                t.TitleTextColor = GetPrimaryColor();
+            });
             MainPage = new NavigationPage(new BottomNavigationPage(viewModel));
 
             //MainPage = new AppShell();
