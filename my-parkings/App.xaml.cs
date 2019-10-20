@@ -43,12 +43,10 @@ namespace my_parkings
 
             var bottomNavigation = new BottomNavigationPage(viewModel);
             bottomNavigation.NavigationHeder.let(t => {
-                t.BackgroundColor = GetPrimaryColor();
-                t.TitleTextColor = Color.White;
+                t.BackgroundColor = Color.Transparent;
+                t.TitleTextColor = Color.Black;
             });
             MainPage = new NavigationPage(bottomNavigation);
-
-            //MainPage = new AppShell();
         }
 
         private Color GetPrimaryColor()

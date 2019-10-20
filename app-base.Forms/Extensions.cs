@@ -68,6 +68,8 @@ namespace appbase.Forms
    
         public static void let<T>(this T t, Action<T> action) => action(t);
 
+        public static bool IsCurrentPlatform(this object current, string platformToCheck) => Device.RuntimePlatform == platformToCheck;
+
         public static void OnNewTask(this object current, Func<Task> actionAsync)
         {
             IDisposable disposable = null;

@@ -109,6 +109,9 @@ namespace NavigationHeder.View
             try
             {
                 current._titleLabel.TextColor = current.TitleTextColor;
+                current._rightIcon.LineColor = current.TitleTextColor;
+                current._leftIcon.LineColor = current.TitleTextColor;
+
             }
             catch
             {
@@ -193,9 +196,17 @@ namespace NavigationHeder.View
         {
             InitializeComponent();
             Disposables = new List<IDisposable>();
+        }
+
+        /// <summary>
+        /// must be called by the consumer, during OnAppearing, to Bind the component to the lifeCycle of current Page
+        /// </summary>
+        /// <returns></returns>
+        public IDisposable OnCreate()
+        {
             Disposables.Add(_leftIcon.OnClick(() => LeftIconClick?.Invoke(this, EventArgs.Empty), 1));
             Disposables.Add(_rightIcon.OnClick(() => RightIconClick?.Invoke(this, EventArgs.Empty), 1));
-
+            return this;
         }
 
         public void Dispose()

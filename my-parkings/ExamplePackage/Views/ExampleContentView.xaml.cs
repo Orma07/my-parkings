@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using appbase.Forms;
 using bottomnavigation.Forms;
 using myparkings.Forms.ExamplePackage.ViewModels;
 using Xamarin.Forms;
@@ -18,11 +19,30 @@ namespace myparkings.Forms.ExamplePackage.Views
 
         public void OnCreate()
         {
-            var position = (int)_args["position"];
-            var viewModel = new ViewModelExample
+            var position = -1;
+            try
             {
-                Text = position.ToString(),
-            };
+                position = (int)_args["position"];
+            }
+            catch
+            {
+
+            }
+
+            var viewModel = new ViewModelExample();
+
+            viewModel.Text.let(t =>
+            {
+                if (position > -1)
+                {
+                    t = position.ToString();
+                }
+                else
+                {
+                    t = "new page inside section";
+                }
+            });
+
             Device.BeginInvokeOnMainThread(() => {
                 BindingContext = viewModel;
             });

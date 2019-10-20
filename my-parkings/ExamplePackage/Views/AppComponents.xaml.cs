@@ -1,15 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using appbase.Forms;
 using bottomnavigation.Forms;
+using bottomnavigation.Forms.Views;
 using Xamarin.Forms;
 
 namespace myparkings.Forms.ExamplePackage.Views
 {
     public partial class AppComponents : ContentView, IBottomNavigationPage
     {
+
         public AppComponents()
         {
             InitializeComponent();
+            TestInverseButton.OnClick(() =>
+            {
+                BottomNavigationPage.PushPage(new ExampleContentView());
+            }, 0);
         }
 
         private Dictionary<string, object> _args;
@@ -17,7 +24,7 @@ namespace myparkings.Forms.ExamplePackage.Views
 
         public void OnCreate()
         {
-            
+           
         }
 
         public void OnDestroy()

@@ -33,7 +33,7 @@
                 <Button x:Name="TestInverseButton"
                         Style="{StaticResource InverseButton}"
                         HorizontalOptions="FillAndExpand"
-                        Text="CLICK"/>
+                        Text="OPEN PAGE"/>
                 <Button x:Name="TestInverseButtonDisabled"
                         IsEnabled="False"
                         Style="{StaticResource InverseButtonDisabled}"

@@ -1,10 +1,8 @@
 ﻿using System;
 namespace iconview.Forms
 {
-    public class DefaultIcons
+    public static class DefaultIcons
     {
-        public DefaultIcons()
-        {
-        }
+        public const string LeftIcon = "left-arrow";
     }
 }

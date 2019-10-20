@@ -15,8 +15,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\monkey.svg" />
+    <None Remove="Resources\left-arrow.svg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\monkey.svg" />
+    <EmbeddedResource Include="Resources\left-arrow.svg" />
   </ItemGroup>
 </Project>
