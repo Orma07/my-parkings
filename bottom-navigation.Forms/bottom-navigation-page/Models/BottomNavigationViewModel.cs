@@ -21,20 +21,6 @@ namespace bottomnavigation.Forms.Models
             set => SetProperty(ref _selectionColor, value);
         }
 
-        private Color _headerColor;
-        public Color HeaderColor
-        {
-            get => _headerColor;
-            set => SetProperty(ref _headerColor, value);
-        }
-
-        private bool _isNavigationHeaderVisible;
-        public bool IsNavigationHeaderVisible
-        {
-            get => _isNavigationHeaderVisible;
-            set => SetProperty(ref _isNavigationHeaderVisible, value);
-        }
-
         private Color _notSelectedColor;
         public Color NotSelectedColor
         {

@@ -31,8 +31,7 @@ namespace bottomnavigation.Forms.Views
 
             BottomNavigation.Sections = bottomViews;
             BindingContext = _viewModel;
-            
-
+   
         }
 
 
