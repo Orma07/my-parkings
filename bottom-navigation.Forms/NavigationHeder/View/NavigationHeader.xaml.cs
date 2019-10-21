@@ -9,6 +9,10 @@ namespace NavigationHeder.View
     {
         #region LeftIconSource
         public event EventHandler LeftIconClick;
+        public void ResetLeftIcon()
+        {
+            LeftIconClick = null;
+        }
         public static readonly BindableProperty LeftIconSourceProperty =
         BindableProperty.Create("LeftIconSource",
             typeof(string),
@@ -21,7 +25,16 @@ namespace NavigationHeder.View
             var current = (NavigationHeader)bindable;
             try
             {
-                current._leftIcon.Source = newValue as string;
+                if ((newValue as string).IsNullOrEmpty())
+                {
+                    current.OnUIThread(() => current._leftIcon.IsVisible = false);
+                }
+                else
+                {
+                    current.OnUIThread(() => current._leftIcon.IsVisible = true);
+                    current._leftIcon.Source = newValue as string;
+
+                }
             }
             catch
             {
@@ -38,6 +51,10 @@ namespace NavigationHeder.View
 
         #region RightIconSource
         public event EventHandler RightIconClick;
+        public void ResetRightIcon()
+        {
+            RightIconClick = null;
+        }
         public static readonly BindableProperty RightIconSourceProperty =
         BindableProperty.Create("RightIconSource",
             typeof(string),
@@ -50,7 +67,16 @@ namespace NavigationHeder.View
             var current = (NavigationHeader)bindable;
             try
             {
-                current._rightIcon.Source = newValue as string;
+                if ((newValue as string).IsNullOrEmpty())
+                {
+                    current.OnUIThread(() => current._rightIcon.IsVisible = false);
+                }
+                else
+                {
+                    current.OnUIThread(() => current._rightIcon.IsVisible = true);
+                    current._rightIcon.Source = newValue as string;
+
+                }
             }
             catch
             {

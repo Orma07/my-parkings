@@ -5,13 +5,16 @@
       xmlns:iconView="clr-namespace:iconview.Forms;assembly=icon-view.Forms">
 
     <Grid.ColumnDefinitions>
-        <ColumnDefinition Width=".1*"/>
-        <ColumnDefinition Width=".8*"/>
-        <ColumnDefinition Width=".1*"/>
+        <ColumnDefinition Width=".2*"/>
+        <ColumnDefinition Width=".6*"/>
+        <ColumnDefinition Width=".2*"/>
     </Grid.ColumnDefinitions>
 
     <iconView:IconView x:Name="_leftIcon"
                        Source="{Binding LeftIconSource}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Scale=".5"
                        Grid.Column="0"/>
 
     <Label x:Name="_titleLabel"
@@ -21,6 +24,9 @@
            HorizontalTextAlignment="Center"/>
 
      <iconView:IconView x:Name="_rightIcon"
+                        HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Scale=".5"
                        Grid.Column="2"/>
    
 </Grid>

@@ -47,17 +47,27 @@ namespace bottomnavigation.Forms.Views
                 if (Activator.CreateInstance(pageToPushType) is View view)
                 {
                     (PageContent.Content as IBottomNavigationPage).OnDestroy();
-                    PageContent.Content = view;
+
+                    view.OnUIThread(() => PageContent.Content = view);
 
                     (view as IBottomNavigationPage).let(t =>
                     {
                         if (_pagesStack.Count == 1)
                         {
                             t.Args = _viewModel.Pages[BottomNavigation.Position].Args;
+                            NavigationHeaderVeiw.let(NavHeader =>
+                            {
+                                NavHeader.LeftIconSource = null;
+                                NavHeader.ResetLeftIcon();
+                                NavHeader.ResetRightIcon();
+                                NavHeader.RightIconSource = null; 
+
+                            });
                         }
 
-                        t.OnCreate();
 
+                        view.OnUIThread(() => t.OnCreate());
+                      
                     });
 
                     _pagesStack.Remove(pageToPushType);
@@ -89,17 +99,27 @@ namespace bottomnavigation.Forms.Views
                         (currentPage.PageContent.Content as IBottomNavigationPage).OnDestroy();
                     }
 
-                    currentPage.NavigationHeaderVeiw.let(t =>
+                    if (page.IsCurrentPlatform(Device.iOS))
                     {
-                        t.LeftIconSource = DefaultIcons.LeftIcon;
-                        t.LeftIconClick += (s, e) =>
+                        currentPage.NavigationHeaderVeiw.let(t =>
                         {
-                            currentPage.OnBackButtonPressed();
-                        };
-                    });
+                            t.LeftIconSource = DefaultIcons.LeftIcon;
+                            t.LeftIconClick += (s, e) =>
+                            {
+                                currentPage.OnBackButtonPressed();
+                            };
+                        });
+                    }
 
-                    currentPage.PageContent.Content = page as View;
-                    page.OnCreate();
+                    (page as View).let(view =>
+
+                        view.OnUIThread(() =>
+                        {
+                            currentPage.PageContent.Content = page as View;
+                            page.OnCreate();
+
+                        })
+                    ); 
                 }
                 else
                 {
@@ -142,6 +162,15 @@ namespace bottomnavigation.Forms.Views
             }
             PageContent.Content = view;
             bottomNavigationPage.OnCreate();
+
+            NavigationHeaderVeiw.let(NavHeader =>
+            {
+                NavHeader.LeftIconSource = null;
+                NavHeader.ResetLeftIcon();
+                NavHeader.ResetRightIcon();
+                NavHeader.RightIconSource = null;
+
+            });
 
 
             NavigationHeaderVeiw.TitleText = _viewModel.Pages[args.PosionSelected].NavigationItemModel.Title;

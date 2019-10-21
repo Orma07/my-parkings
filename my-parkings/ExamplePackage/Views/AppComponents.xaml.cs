@@ -13,10 +13,11 @@ namespace myparkings.Forms.ExamplePackage.Views
         public AppComponents()
         {
             InitializeComponent();
-            TestInverseButton.OnClick(() =>
+            TestInverseButton.Clicked += (s, e) =>
             {
                 BottomNavigationPage.PushPage(new ExampleContentView());
-            }, 0);
+            };
+            
         }
 
         private Dictionary<string, object> _args;
@@ -24,7 +25,8 @@ namespace myparkings.Forms.ExamplePackage.Views
 
         public void OnCreate()
         {
-           
+            
+
         }
 
         public void OnDestroy()

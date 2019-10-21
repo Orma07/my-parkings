@@ -31,19 +31,17 @@ namespace myparkings.Forms.ExamplePackage.Views
 
             var viewModel = new ViewModelExample();
 
-            viewModel.Text.let(t =>
+            if (position > -1)
             {
-                if (position > -1)
-                {
-                    t = position.ToString();
-                }
-                else
-                {
-                    t = "new page inside section";
-                }
-            });
+                viewModel.Text = position.ToString();
+            }
+            else
+            {
+                viewModel.Text = "new page inside section";
+            }
 
-            Device.BeginInvokeOnMainThread(() => {
+            Device.BeginInvokeOnMainThread(() =>
+            {
                 BindingContext = viewModel;
             });
         }
