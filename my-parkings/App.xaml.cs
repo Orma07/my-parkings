@@ -1,6 +1,9 @@
-﻿using System;
+﻿using System.Collections.ObjectModel;
+using appbase.Forms;
+using bottomnavigation.Forms.Models;
+using bottomnavigation.Forms.Views;
+using myparkings.Forms.ExamplePackage.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace my_parkings
 {
@@ -10,7 +13,45 @@ namespace my_parkings
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            var pages = new ObservableCollection<SectionModel>();
+
+            for(int i = 1; i<5; i++)
+            {
+                var section = new SectionModel
+                {
+                    NavigationItemModel = new NavigationItemModel
+                    {
+                        IconSource = "monkey",
+                        Title = $"Monkey {i}"
+
+                    },
+                    PagesType = i == 1 ? typeof(AppComponents) : typeof(ExampleContentView),
+                };
+                section.Args.Add("position", i);
+                pages.Add(section);
+
+
+            }
+
+            var viewModel = new BaseBottomNavigationPageModel
+            {
+                SelectionColor = GetPrimaryColor(),
+                NotSelectedColor = Color.DarkGray,
+                ColorSeparetor = Color.LightGray,
+                Pages = pages
+            };
+
+            var bottomNavigation = new BottomNavigationPage(viewModel);
+            bottomNavigation.NavigationHeder.let(t => {
+                t.BackgroundColor = Color.Transparent;
+                t.TitleTextColor = GetPrimaryColor();
+            });
+            MainPage = new NavigationPage(bottomNavigation);
+        }
+
+        private Color GetPrimaryColor()
+        {
+            return (Color)Application.Current.Resources["PrimaryColor"];
         }
 
         protected override void OnStart()

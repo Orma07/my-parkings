@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="myparkings.Forms.ExamplePackage.Views.AppComponents">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="StackStyle" TargetType="StackLayout">
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="Spacing" Value="5"/>
+                <Setter Property="Margin" Value="10,30,10,30"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical">
+
+            <StackLayout Style="{StaticResource StackStyle}">
+                <Button x:Name="TestButton"
+                        Style="{StaticResource Button}"
+                        HorizontalOptions="FillAndExpand"
+                        Text="CLICK"/>
+                <Button x:Name="TestButtonDisabled"
+                        IsEnabled="False"
+                        Style="{StaticResource Button}"
+                        HorizontalOptions="FillAndExpand"
+                        Text="CLICK"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource StackStyle}">
+                <Button x:Name="TestInverseButton"
+                        Style="{StaticResource InverseButton}"
+                        HorizontalOptions="FillAndExpand"
+                        Text="OPEN PAGE"/>
+                <Button x:Name="TestInverseButtonDisabled"
+                        IsEnabled="False"
+                        Style="{StaticResource InverseButtonDisabled}"
+                        HorizontalOptions="FillAndExpand"
+                        Text="CLICK"/>
+            </StackLayout>
+            
+            <Entry x:Name="TestEntry"
+                   Style="{StaticResource Entry}"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"
+                   Margin="10,30"
+                   Placeholder="Write here"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

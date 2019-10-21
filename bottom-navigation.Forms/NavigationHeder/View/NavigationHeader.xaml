@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      x:Class="NavigationHeder.View.NavigationHeader"
+      xmlns:iconView="clr-namespace:iconview.Forms;assembly=icon-view.Forms">
+
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".2*"/>
+        <ColumnDefinition Width=".6*"/>
+        <ColumnDefinition Width=".2*"/>
+    </Grid.ColumnDefinitions>
+
+    <iconView:IconView x:Name="_leftIcon"
+                       Source="{Binding LeftIconSource}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Scale=".5"
+                       Grid.Column="0"/>
+
+    <Label x:Name="_titleLabel"
+           Grid.Column="1"
+           FontAttributes="Bold"
+           VerticalTextAlignment="Center"
+           HorizontalTextAlignment="Center"/>
+
+     <iconView:IconView x:Name="_rightIcon"
+                        HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Scale=".5"
+                       Grid.Column="2"/>
+   
+</Grid>
